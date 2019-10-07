@@ -43,26 +43,25 @@ Get started
 
 .. rst-class:: column
 
-:ref:`Addon Managers <addonmanagers>`
+:ref:`How-to guides <howtoguides>`
 -------------------------------------
 
-What are platforms and how do they work
+Step-by-step guides for the developer covering key operations and procedures
 
 .. rst-class:: column
 
-:ref:`Addons <addons>`
+:ref:`Reference <reference>`
 ----------------------------
 
-Advantages or flavour addons and ways to expose functionallity as a addon developer.
-
+Technical reference - tools, components and commands
 
 .. rst-class:: column
 
 
-:ref:`Specification <specification>`
+:ref:`Background <background>`
 ------------------------------------
 
-The specification.
+Explanation and discussion of key topics
 
 .. rst-class:: clearfix row
 
@@ -82,9 +81,9 @@ Detailed table of contents
    :maxdepth: 2
 
    introduction/index
-   addonmanagers/index
-   addons/index
-   specification/index
+   howto/index
+   reference/index
+   background/index
 
 
 
