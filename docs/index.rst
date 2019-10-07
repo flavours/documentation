@@ -39,7 +39,7 @@ Contents
 :ref:`Introduction <introduction>`
 ----------------------------------
 
-Get started
+Get started and high level architectural overview.
 
 
 .. rst-class:: column
