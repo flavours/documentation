@@ -17,5 +17,3 @@ Tools such as Docker, allow applications to be packaged into containers by abstr
 Containers can be deployed and run across different environments where environment variables provide specific environmental settings.
 
 The Flavours specification extends this by describing the application details in vendor-neutral YAML (human-readable data-serialization language).  
-
-Applications include the Flavours YAML file, often with default or suggested configuration options, which are used by any service supporting Flavours to understand and provision an 
