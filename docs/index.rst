@@ -25,7 +25,8 @@ Flavour v0.1 - Documentation and Specification
 .. image:: _static/flavours_512.png
    :alt: 'Flavours'
    :class: 'main-visual'
-
+   :scale: 50%
+   :align: center
 
 Contents
 ========
@@ -86,16 +87,6 @@ Detailed table of contents
    background/index
 
 
-
-Notational Conventions
-----------------------
-
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" are to be interpreted as described in [RFC 2119](http://tools.ietf.org/html/rfc2119).
-
-The key words "unspecified", "undefined", and "implementation-defined" are to be interpreted as described in the [rationale for the C99 standard](http://www.open-std.org/jtc1/sc22/wg14/www/C99RationaleV5.10.pdf#page=18).
-
-An implementation is not compliant if it fails to satisfy one or more of the MUST, MUST NOT, REQUIRED, SHALL, or SHALL NOT requirements for the protocols it implements.
-An implementation is compliant if it satisfies all the MUST, MUST NOT, REQUIRED, SHALL, and SHALL NOT requirements for the protocols it implements.
 
 
 
