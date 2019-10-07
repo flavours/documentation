@@ -125,7 +125,6 @@ usage with the CLI
 ++++++++++++++++++++
 
 
-.. mermaidjs::
    
    sequenceDiagram
        participant user
