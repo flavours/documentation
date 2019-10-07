@@ -35,7 +35,7 @@ A addon manager supports actions to `add` and `remove` addons of a platform into
 The addon manager will do all the necessary file changes of the project to fully add the dependency. 
 For example a "python" platform could just update the `requirements.txt` file during the `add` action of an addon.
 
-Usage
+Actions
 -------
 
 An addons manager MUST provide the following binaries, packaged in a docker image. 
@@ -75,7 +75,7 @@ check
 Returns `True` if its a valid file configuration file, `False` otherwise.
 
 
-The container
+Configuration
 -----------------
 
 The addon manager must define its own name as an environment variable in the image.
@@ -85,59 +85,8 @@ The addon manager must define its own name as an environment variable in the ima
    FAM_IDENTIFIER='flavour/fam-python:0.1'
 
 
-Conventions
-------------
-
-inheritance
-+++++++++++
-
-addon manager inheritance can be used to split generalized actions and tasks between addon managers. 
-
-
-.. graphviz::
-
-   digraph pipeline {
-      node[shape=box];
-      subgraph cluster0 {
-            color=lightgrey;
-            label="Addon Managers";
-            flavour->python;
-            flavour->divio_legacy_addons
-            flavour->bash;
-            flavour->php;
-            php->laravel;
-            php->symfony;
-      }
-   }
-
-if is possible to "inherit" from other addon managers. this means, basically, basing you addon managers on top of existing ones. 
-the fam-python addon manager (child) is based on the fam-flavour addon manager (parent) for example. 
-
-as a convention, the child must move the standard binaries (/bin/bin, /bin/remove, /bin/check) to a separate subfolder with the name /bin/<fam-identifier> where the identifier is the name of the addon manager. e.g.: /bin/fam-flavour/add
-the child binaries will be put in the normal place /bin/add and should internally invoke the parent binaries, if possible and desired. 
-
-
-rego
-++++
-
-it is encouraged to verify the validity of a yaml file prior to acting on it. 
-the action should fail as early as possible
-
-rego can be used to validate yaml files early
-
-
-error handling
-+++++++++++++++++++
-
-any error should fail the current process immediately with a non-zero exit code.
-try to check as much as early as possible to fail as early as possible, if possible even before changing any files.
-
-
-
-
-usage with the CLI
-++++++++++++++++++++
-
+Usage with the CLI
+-------------------
 
 .. mermaidjs::
    
