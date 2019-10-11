@@ -3,24 +3,76 @@
 Reference
 ##############
 
-Notational Conventions
-======================
-
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" are to be interpreted as described in [RFC 2119](http://tools.ietf.org/html/rfc2119).
-
-The key words "unspecified", "undefined", and "implementation-defined" are to be interpreted as described in the [rationale for the C99 standard](http://www.open-std.org/jtc1/sc22/wg14/www/C99RationaleV5.10.pdf#page=18).
-
-An implementation is not compliant if it fails to satisfy one or more of the MUST, MUST NOT, REQUIRED, SHALL, or SHALL NOT requirements for the protocols it implements.
-An implementation is compliant if it satisfies all the MUST, MUST NOT, REQUIRED, SHALL, and SHALL NOT requirements for the protocols it implements.
 
 
+app.flavour and addon.flavour yaml files
+========================================
 
+You can find examples online in the python reference implementation of the spec at https://github.com/flavours/libflavour/tree/master/libflavour/test/data.
+
+The following is an example addon for the `aldryn`-platform. 
+
+.. code-block:: yaml
+
+   
+   spec: 0.1
+   meta:
+     name: django-divio
+     version: 0.1
+   install: 
+     package: django==1.11.20.4
+
+
+.. glossary::
+
+    spec
+       Specifies the version of the flavour specification. Required
+    meta
+       Generall information about the addon / project like `name` or `version`. Both fields are required.
+    install
+       Key-Value structure which is used during the addon manager actions (e.g. `add`, `remove`).
+       This is purely defined and unique to each platform and will change for each platform.
+       In this case, the `aldryn` platform requires a `package` key which has a native python package as a value.
+       
+
+
+
+This is an example of an `app.flavour` file which could be found in a project which supports the `aldryn`-platform. : 
+
+.. code-block:: yaml
+
+   spec: 0.1
+   meta:
+     name: my-aldryn-project
+     version: 0.1
+   addons:
+     addon/aldryn-addons:1.0.4:
+       manager: flavour/fam-aldryn:0.1
+       hash: 1cf06ba56949fe7370d81b9ba459a272cf1879036d9a363a119cd441d8854182
+     addon/aldryn-common:1.0.4:
+       manager: flavour/fam-aldryn:0.1
+       hash: f2c5818177ea75546d2e18d65f2d6890ddfa7d87fc617d7200c9df7c2f9857f2
+
+The `spec`and `meta` are the same for addons and projects.
+
+.. glossary::
+
+    addons
+       A list of installed addons. 
+
+       .. code-block:: yaml
+    
+          # Name of the addon and version 
+          addon/aldryn-common:1.0.4:
+             # Name of the addon manager that was used during installation and version
+             manager: flavour/fam-aldryn:0.1 
+             # sha256 hex of the configuration content of the addon that was used during installation
+             hash: f2c5818177ea75546d2e18d65f2d6890ddfa7d87fc617d7200c9df7c2f9857f2 
 
 Addon managers
 =================
 
 A flavour addon manager (FAM) is responsible for all interactions with a corresponding platform. 
-
 
 A platform is an opinionated project structure, framework and language. 
 No clear definition of this exists and it must be defined by the platform developers.
@@ -51,19 +103,17 @@ All these binaries MUST accept the addon.yml file from stdin.
 add
 ++++
 
-makes all required changes that is needed to install the addon for the platform. The actions are fully platform dependent.
+Makes all required changes that is needed to install the addon for the platform. The actions are fully platform dependent.
 
-* SHOULD add entry to app.flavour
-* SHOULD 
-
-* the hash function is sha256 hex
+* SHOULD add a new entry to the "addons" section in the app.flavour
+* The hash function MUST be sha256 hex
 
 
 
 remove
 +++++++
 
-removes the addon, the actions are also fully platform dependent. 
+Removes the addon, the actions are also fully platform dependent. 
 The remove action is *not* necessarily the opposite of the `add` action, even though the name implies it.
 The action can decide, for the sake of stability or security, to not undo certain changes which should normally be part of a full removal
 The developers of this actions should keep the `remove` action as closely related to the `add` action as possible. 
@@ -72,7 +122,7 @@ The developers of this actions should keep the `remove` action as closely relate
 check
 +++++++
 
-Returns `True` if its a valid file configuration file, `False` otherwise.
+Returns `True` if its a valid `addon.flavour` file, `False` otherwise.
 
 
 Configuration
@@ -88,8 +138,10 @@ The addon manager must define its own name as an environment variable in the ima
 Usage with the CLI
 -------------------
 
+
 .. mermaidjs::
    
+
    sequenceDiagram
        participant user
        participant flavour cli
@@ -141,4 +193,16 @@ It is very important to not that flavour does not intent to replace native packa
 The normal package managers and ecosystems are still used and flavour adds additional information and enables more functions due to the standadized approach. 
 
 
+
+
+
+Notational Conventions
+======================
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" are to be interpreted as described in [RFC 2119](http://tools.ietf.org/html/rfc2119).
+
+The key words "unspecified", "undefined", and "implementation-defined" are to be interpreted as described in the [rationale for the C99 standard](http://www.open-std.org/jtc1/sc22/wg14/www/C99RationaleV5.10.pdf#page=18).
+
+An implementation is not compliant if it fails to satisfy one or more of the MUST, MUST NOT, REQUIRED, SHALL, or SHALL NOT requirements for the protocols it implements.
+An implementation is compliant if it satisfies all the MUST, MUST NOT, REQUIRED, SHALL, and SHALL NOT requirements for the protocols it implements.
 
