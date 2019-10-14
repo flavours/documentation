@@ -192,39 +192,6 @@ https://github.com/flavours/cli
 
 
 
-internals: installation highlevel overview
-------------------------------------------
-
-
-.. mermaidjs::
-   
-
-   sequenceDiagram
-       participant user
-       participant flavour cli
-       participant hub flavour
-       participant flavour addon manager(fam)
-       participant project
-
-       user->>flavour cli:flavour add divio/django
-       flavour cli->>hub flavour:resolve divio/django
-       hub flavour-->>flavour cli: data:addon_id
-       flavour cli->>hub flavour: get detail of addonversion by addon_id
-       hub flavour-->>flavour cli: data
-       flavour cli->>flavour cli: figure out platform of addonversion
-       flavour cli->>hub flavour: get detail of platform
-       hub flavour-->>flavour cli: data
-       flavour cli->>flavour cli: select fam of the platform
-       flavour cli->>flavour addon manager(fam): add addon based on yaml
-       flavour addon manager(fam)->>project: change files to install the addon in the code
-       project-->>flavour addon manager(fam):success
-       flavour addon manager(fam)-->>flavour cli:success
-       flavour cli-->>user:success
-
-
-
-
-
 .. _addons:
 
 
