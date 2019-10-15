@@ -6,17 +6,17 @@ Reference
 Technical reference - tools, components and commands
 
 
-Architectual overview
-=====================
+Architectural overview
+======================
 
 flavour can manage the configuration and dependency of addons in a project.
-An addon is losely defined as anything that can be added to a project of any platform.
-A Platform is also very loseley defined and can be viewd as a combination of a programming language, framework and best practices. 
+An addon is loosely defined as anything that can be added to a project of any platform.
+A Platform is also very loosely defined and can be viewed as a combination of a programming language, framework and best practices. 
 This also means that there can be multiple `platforms` for a python - django project but each with different project layouts and other practices.
 This open nature will ensure that any project, regardless of its kind and requirements can be used as a platform and new and small platforms are first class citizens in the eco system.
 
 A `flavour addon manager(fam)` is used to manage a platform in the flavour context. 
-Each addon manager implements a fixed interface - see below - wich allows a unified usage and interchangeability.
+Each addon manager implements a fixed interface - see below - which allows a unified usage and interchangeability.
 
 
 Addons
@@ -24,10 +24,10 @@ Addons
 
 A flavour compatible addon is a normal addon or dependency of a platform (like python, php) which has additional information in form of a flavour addon configuration.
  
-in the python world, this could be a normal pypi packge from pypi and other platforms and languages have other existing strucures which all can be expressed in the flavour addon configuration.
+in the python world, this could be a normal pypi package from pypi and other platforms and languages have other existing structures which all can be expressed in the flavour addon configuration.
 
-The addon has information about the compatibility and configuration options in a standadized way which can be used by different services.
-This allowes automization and generation of configurations. 
+The addon has information about the compatibility and configuration options in a standardized way which can be used by different services.
+This allows automation and generation of configurations. 
 
 Broadly speaking, there are two ways a flavour addon can be created. 
 
@@ -38,7 +38,7 @@ Broadly speaking, there are two ways a flavour addon can be created.
 
 
 It is very important to not that flavour does not intent to replace native package managers or ecosystems of platforms. 
-The normal package managers and ecosystems are still used and flavour adds additional information and enables more functions due to the standadized approach. 
+The normal package managers and ecosystems are still used and flavour adds additional information and enables more functions due to the standardized approach. 
 
 
 
@@ -52,7 +52,7 @@ A platform is an opinionated project structure, framework and language.
 No clear definition of this exists and it must be defined by the platform developers.
 Normally, we expect that this will boil down to only a hand full of platforms for each language/framework but there are no limits imposed upon any of this. 
 As an example, multiple python + django platforms can exist, all with different project layouts. 
-One platform will be an opinionated strucutre for the framework and addons can be installed into this structure. 
+One platform will be an opinionated structure for the framework and addons can be installed into this structure. 
 This can be very simple but there is no limit defined. 
 
 A addon manager supports actions to `add` and `remove` addons of a platform into your project and can also `check` if an addon is compatible with a platform.  
@@ -135,7 +135,7 @@ The following is an example addon for the `aldryn`-platform.
        Specifies the version of the flavour specification. Required
 
     meta
-       Generall information about the addon / project like `name` or `version`. Both fields are required.
+       General information about the addon / project like `name` or `version`. Both fields are required.
 
     install
        Key-Value structure which is used during the addon manager actions (e.g. `add`, `remove`).
@@ -183,6 +183,6 @@ CLI
 ===
 
 The command line interface is the main mode of interaction with flavour during normal development. 
-It exposes the basic functionality of flavour addon managers and allows for installation, removal and configuraiton checks.
+It exposes the basic functionality of flavour addon managers and allows for installation, removal and configuration checks.
 
 https://github.com/flavours/cli

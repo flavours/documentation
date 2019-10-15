@@ -79,7 +79,7 @@ CLI
 
 
 
-Internals: installation highlevel overview
+Internals: installation high level overview
 ------------------------------------------
 
 This is a high level sequence diagram of all the actors involved during installation of an addon.

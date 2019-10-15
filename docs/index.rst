@@ -78,7 +78,7 @@ What is Flavours?
 
 The Flavours specification aims to address the need for open and extensible application-level configuration.
 
-Tools such as Docker, allow applications to be packaged into containers by abstracting the underlying infrastructure and describing an applications dependencies and middleware requirements. Existing container images of preconfigured software can be used to compose new containers and add features easily and efficiently. 
+Tools such as Docker, allow applications to be packaged into containers by abstracting the underlying infrastructure and describing an applications dependencies and middleware requirements. Existing container images of pre-configured software can be used to compose new containers and add features easily and efficiently. 
 
 Containers can be deployed and run across different environments where environment variables provide specific environmental settings.
 
