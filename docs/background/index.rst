@@ -90,25 +90,25 @@ This is a high level sequence diagram of all the actors involved during installa
 
    sequenceDiagram
        participant user
-       participant flavour cli
-       participant hub flavour
+       participant CLI
+       participant registry
        participant flavour addon manager(fam)
        participant project
 
-       user->>flavour cli:flavour add divio/django
-       flavour cli->>hub flavour:resolve divio/django
-       hub flavour-->>flavour cli: data:addon_id
-       flavour cli->>hub flavour: get detail of addonversion by addon_id
-       hub flavour-->>flavour cli: data
-       flavour cli->>flavour cli: figure out platform of addonversion
-       flavour cli->>hub flavour: get detail of platform
-       hub flavour-->>flavour cli: data
-       flavour cli->>flavour cli: select fam of the platform
-       flavour cli->>flavour addon manager(fam): add addon based on yaml
+       user->>CLI:flavour add divio/django
+       CLI->>registry:resolve divio/django
+       registry-->>CLI: data:addon_id
+       CLI->>registry: get detail of addonversion by addon_id
+       registry-->>CLI: data
+       CLI->>CLI: figure out platform of addonversion
+       CLI->>registry: get detail of platform
+       registry-->>CLI: data
+       CLI->>CLI: select fam of the platform
+       CLI->>flavour addon manager(fam): call "add addon action" with addon.flavour on STDIN
        flavour addon manager(fam)->>project: change files to install the addon in the code
        project-->>flavour addon manager(fam):success
-       flavour addon manager(fam)-->>flavour cli:success
-       flavour cli-->>user:success
+       flavour addon manager(fam)-->>CLI:success
+       CLI-->>user:success
 
 
 
