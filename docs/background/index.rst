@@ -53,6 +53,9 @@ This allows for a flexible structure for the different binaries during a complex
 
 Example of the action binaries and symlinks of an addon manager called `fam-aldryn` which inherits from `fam-flavour`:
 
+
+.. code::
+  
   /bin/fam-flavour/add
   /bin/fam-flavour/remove
   /bin/fam-flavour/check

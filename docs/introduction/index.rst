@@ -5,15 +5,34 @@
 Introduction
 #################
 
-The Flavours specification describes how web applications can be composed, configured and built, allowing vendor-neutral deployment across clouds.
+First steps to understand flavour and get to know it. 
 
-What is Flavours?
-=================
+Step 1: Setup the flavour locally
+==========================================
 
-The Flavours specification aims to address the need for open and extensible application-level configuration.
+To use flavour locally, you just have to install `docker` and get the flavour CLI.
 
-Tools such as Docker, allow applications to be packaged into containers by abstracting the underlying infrastructure and describing an applications dependencies and middleware requirements. Existing container images of preconfigured software can be used to compose new containers and add features easily and efficiently. 
+You can get the flavour CLI from https://www.npmjs.com/package/@flavour/cli or just use the following command ::
 
-Containers can be deployed and run across different environments where environment variables provide specific environmental settings.
+   curl -L https://flavours.dev/cli/install.sh | sh
 
-The Flavours specification extends this by describing the application details in vendor-neutral YAML (human-readable data-serialization language).  
+
+
+Step 2: Install a new addon
+===========================
+
+In this example, we will add a new addon / dependency to a project.
+We will use PHP for this example but the general steps are transferable to other platforms as well.
+
+Download the "getting-started-with" project for the PHP-platform ::
+
+   git clone https://github.com/flavours/getting-started-with-php
+   cd getting-started-with-php
+
+Install a new addon. In this case, we use the pre-prepared `laravel-responsecache` in version `6.1.1`. ::
+
+   flavour add composer/spatie/laravel-responsecache:6.1.1`
+
+The flavour CLI will check the default registry on addons.flavours.dev and look for this addon. 
+You can take a look at the background section of this documentation to get more details.
+This is all you have to do to trigger a simple installation. You can check out the changes in the project now. 

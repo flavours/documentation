@@ -71,7 +71,28 @@ Explanation and discussion of key topics
 About this documentation
 =========================
 
-This documentation is the central hub of information for all things flavour.
+This documentation is the central hub of information for all things flavour. The Flavours specification describes how web applications can be composed, configured and built, allowing vendor-neutral deployment across clouds.
+
+What is Flavours?
+=================
+
+The Flavours specification aims to address the need for open and extensible application-level configuration.
+
+Tools such as Docker, allow applications to be packaged into containers by abstracting the underlying infrastructure and describing an applications dependencies and middleware requirements. Existing container images of preconfigured software can be used to compose new containers and add features easily and efficiently. 
+
+Containers can be deployed and run across different environments where environment variables provide specific environmental settings.
+
+The Flavours specification extends this by describing the application details in vendor-neutral YAML (human-readable data-serialization language).  
+
+Notational Conventions
+======================
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" are to be interpreted as described in [RFC 2119](http://tools.ietf.org/html/rfc2119).
+
+The key words "unspecified", "undefined", and "implementation-defined" are to be interpreted as described in the [rationale for the C99 standard](http://www.open-std.org/jtc1/sc22/wg14/www/C99RationaleV5.10.pdf#page=18).
+
+An implementation is not compliant if it fails to satisfy one or more of the MUST, MUST NOT, REQUIRED, SHALL, or SHALL NOT requirements for the protocols it implements.
+An implementation is compliant if it satisfies all the MUST, MUST NOT, REQUIRED, SHALL, and SHALL NOT requirements for the protocols it implements.
 
 
 

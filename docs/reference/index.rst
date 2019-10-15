@@ -5,7 +5,8 @@ Reference
 
 Technical reference - tools, components and commands
 
-architectual overview
+
+Architectual overview
 =====================
 
 flavour can manage the configuration and dependency of addons in a project.
@@ -16,12 +17,6 @@ This open nature will ensure that any project, regardless of its kind and requir
 
 A `flavour addon manager(fam)` is used to manage a platform in the flavour context. 
 Each addon manager implements a fixed interface - see below - wich allows a unified usage and interchangeability.
-
-
-
-
-
-
 
 
 Addons
@@ -77,7 +72,7 @@ An addons manager MUST provide the following binaries, packaged in a docker imag
   /bin/remove
   /bin/check
   
-All these binaries MUST accept the addon.yml file from stdin.  
+All these binaries MUST accept the addon.flavour file from stdin.  
 
 add
 ++++
@@ -138,8 +133,10 @@ The following is an example addon for the `aldryn`-platform.
 
     spec
        Specifies the version of the flavour specification. Required
+
     meta
        Generall information about the addon / project like `name` or `version`. Both fields are required.
+
     install
        Key-Value structure which is used during the addon manager actions (e.g. `add`, `remove`).
        This is purely defined and unique to each platform and will change for each platform.
@@ -189,22 +186,3 @@ The command line interface is the main mode of interaction with flavour during n
 It exposes the basic functionality of flavour addon managers and allows for installation, removal and configuraiton checks.
 
 https://github.com/flavours/cli
-
-
-
-.. _addons:
-
-
-
-
-
-Notational Conventions
-======================
-
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" are to be interpreted as described in [RFC 2119](http://tools.ietf.org/html/rfc2119).
-
-The key words "unspecified", "undefined", and "implementation-defined" are to be interpreted as described in the [rationale for the C99 standard](http://www.open-std.org/jtc1/sc22/wg14/www/C99RationaleV5.10.pdf#page=18).
-
-An implementation is not compliant if it fails to satisfy one or more of the MUST, MUST NOT, REQUIRED, SHALL, or SHALL NOT requirements for the protocols it implements.
-An implementation is compliant if it satisfies all the MUST, MUST NOT, REQUIRED, SHALL, and SHALL NOT requirements for the protocols it implements.
-
