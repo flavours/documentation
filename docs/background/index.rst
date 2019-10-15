@@ -8,7 +8,7 @@ Background
 General
 =======
 
-errors
+Errors
 -------
 
 Any error should fail the current process immediately with a non-zero exit code.
@@ -26,7 +26,7 @@ The `action` binaries in an addon manager only accept a single YML file from STD
 No other parameters should be needed. 
 
 
-inheritance
+Inheritance
 -----------
 
 Addon manager inheritance is a core feature and is used to simplify the required logic for each platform. 
@@ -39,8 +39,7 @@ Addon manager inheritance is a core feature and is used to simplify the required
             color=lightgrey;
             label="Addon Managers";
             flavour->python;
-            flavour->divio_legacy_addons
-            flavour->bash;
+            flavour->aldryn
             flavour->php;
             php->laravel;
             php->symfony;
@@ -80,7 +79,7 @@ CLI
 
 
 
-internals: installation highlevel overview
+Internals: installation highlevel overview
 ------------------------------------------
 
 This is a high level sequence diagram of all the actors involved during installation of an addon.
