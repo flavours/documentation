@@ -22,5 +22,5 @@ This *implementation* is distinct from the open Flavours *specification*, and ju
 Flavours-aware hosting.
 
 * `Divio's introduction to the workflow using its hosting platform
-  <https://docs.divio.com/en/flavours/introduction/flavours-php-set-up.html>`_ .
+  <https://docs.divio.com/en/flavours/introduction/flavours-php-set-up.html>`_
 
