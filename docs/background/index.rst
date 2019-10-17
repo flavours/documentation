@@ -22,14 +22,14 @@ Addon Managers
 using STDIN in the addon managers
 ---------------------------------
 
-The `action` binaries in an addon manager only accept a single YML file from STDIN. 
-No other parameters should be needed. 
+The `action` binaries in an addon manager only accept a single YML file from STDIN.
+No other parameters should be needed.
 
 
 Inheritance
 -----------
 
-Addon manager inheritance is a core feature and is used to simplify the required logic for each platform. 
+Addon manager inheritance is a core feature and is used to simplify the required logic for each platform.
 
 .. graphviz::
 
@@ -48,13 +48,13 @@ Addon manager inheritance is a core feature and is used to simplify the required
 
 It is a recommendation to place the 3 required binaries (`add`, `remove` and `check`) in a subfolder under `bin` and create symlinks to these binaries.
 For example, the `fam-php-laravel` should place its binaries under `/bin/fam-php-laravel/add` and create a symlink in `/bin/add` to the final location.
-This allows for a flexible structure for the different binaries during a complex inheritance architecture while also providing well defined locations for all binaries . 
+This allows for a flexible structure for the different binaries during a complex inheritance architecture while also providing well defined locations for all binaries .
 
 Example of the action binaries and symlinks of an addon manager called `fam-aldryn` which inherits from `fam-flavour`:
 
 
 .. code::
-  
+
   /bin/fam-flavour/add
   /bin/fam-flavour/remove
   /bin/fam-flavour/check
@@ -80,12 +80,12 @@ CLI
 
 
 Internals: installation high level overview
-------------------------------------------
+--------------------------------------------
 
 This is a high level sequence diagram of all the actors involved during installation of an addon.
 
 .. mermaidjs::
-   
+
 
    sequenceDiagram
        participant user
@@ -108,7 +108,3 @@ This is a high level sequence diagram of all the actors involved during installa
        project-->>flavour addon manager(fam):success
        flavour addon manager(fam)-->>CLI:success
        CLI-->>user:success
-
-
-
-
