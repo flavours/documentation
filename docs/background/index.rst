@@ -29,7 +29,7 @@ No other parameters should be needed.
 Inheritance
 -----------
 
-Addon manager inheritance is a core feature and is used to simplify the required logic for each platform.
+Addon manager inheritance is a core feature and is used to simplify the required logic for each stack.
 
 .. graphviz::
 
@@ -99,10 +99,10 @@ This is a high level sequence diagram of all the actors involved during installa
        registry-->>CLI: data:addon_id
        CLI->>registry: get detail of addonversion by addon_id
        registry-->>CLI: data
-       CLI->>CLI: figure out platform of addonversion
-       CLI->>registry: get detail of platform
+       CLI->>CLI: figure out stack of addonversion
+       CLI->>registry: get detail of stack
        registry-->>CLI: data
-       CLI->>CLI: select fam of the platform
+       CLI->>CLI: select fam of the stack
        CLI->>flavour addon manager(fam): call "add addon action" with addon.flavour on STDIN
        flavour addon manager(fam)->>project: change files to install the addon in the code
        project-->>flavour addon manager(fam):success

@@ -4,7 +4,7 @@ Local workflow
 #################
 
 Your first steps with the Flavours CLI and the Flavours registry. This example uses PHP and Laravel; the principles
-for other platforms are the same.
+for other stacks are the same.
 
 
 Set up your enivironment
@@ -24,7 +24,7 @@ Please install:
 Create a project
 ===========================
 
-Clone the "getting-started-with" project for the PHP platform::
+Clone the "getting-started-with" project for the PHP stack::
 
    git clone https://github.com/flavours/getting-started-with-php
    cd getting-started-with-php
