@@ -24,5 +24,3 @@ jobs:
 
     - name: Sphinx Build
       uses: ammaraskar/sphinx-action@0.4
-    - name: Lint Action
-      uses: samuelmeuli/lint-action@v1.2.0
